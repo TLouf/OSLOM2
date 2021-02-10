@@ -95,6 +95,7 @@ public:
 
 	//*******************************************************
 	string file1;
+	string out_dir;
 	string file2;
 	string file_load;
 	
@@ -346,7 +347,7 @@ Parameters::Parameters() {
 	command_flags.insert(make_pair("-infomap", 13));
 	command_flags.insert(make_pair("-copra", 14));
 	command_flags.insert(make_pair("-louvain", 15));
-	
+	command_flags.insert(make_pair("-o", 16));
 	
 }
 
@@ -420,6 +421,7 @@ bool Parameters::_set_(int argc, char * argv[]) {
 	
 	
 	bool f_set=false;
+	bool out_dir_set=false;
 	bool set_weighted=false;
 
 	
@@ -513,6 +515,15 @@ bool Parameters::_set_(int argc, char * argv[]) {
 				if(set_flag_and_number_external_program("runs for louvain method", argct, louvain_runs, argc,  argv)==false)
 					return false;
 				break;
+			case 16:
+				argct++;
+				if(argct==argc) {
+					error_statement(argv[0]);
+					return false;
+				}
+				out_dir=argv[argct];
+				out_dir_set=true;
+				break;
 			default:
 				error_statement(argv[0]);
 				return false;		
@@ -531,6 +542,16 @@ bool Parameters::_set_(int argc, char * argv[]) {
 		
 		cerr<<"\n\n************************************************************"<<endl;
 		cout<<"ERROR: you didn't set the file with the network.  Please read program instructions or type: \n"<<argv[0]<<endl;
+		cerr<<"************************************************************"<<endl;
+		
+		return false;
+		
+	}
+
+	if(out_dir_set==false) {
+		
+		cerr<<"\n\n************************************************************"<<endl;
+		cout<<"ERROR: you didn't set an output directory.  Please read program instructions or type: \n"<<argv[0]<<endl;
 		cerr<<"************************************************************"<<endl;
 		
 		return false;

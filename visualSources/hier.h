@@ -361,8 +361,8 @@ int another_level(string short_tpn, string netn, string tpn, map<int, double> & 
 	
 	char posf[1000];
 	char graphf[1000];
-	sprintf(posf, "%s_oslo_files/pos_%d", b1, level);
-	sprintf(graphf, "%s_oslo_files/ggraph_%d", b1, level);
+	sprintf(posf, "%s/pos_%d", b1, level);
+	sprintf(graphf, "%s/ggraph_%d", b1, level);
 	
 	cout<<"writing..."<<endl;
 	luca.draw_gnuplot(lab_x_next, lab_y_next, lab_r_next, string(posf), string(graphf));
@@ -371,16 +371,16 @@ int another_level(string short_tpn, string netn, string tpn, map<int, double> & 
 	
 	/*deque<string> justint;
 	luca.draw_gnuplot(lab_x_next, lab_y_next, lab_r_next, justint, internal_links);
-	sprintf(posf, "%s_oslo_files/justpos_%d", b1, level);
-	sprintf(graphf, "%s_oslo_files/graph_just_%d", b1, level);
+	sprintf(posf, "%s/justpos_%d", b1, level);
+	sprintf(graphf, "%s/graph_just_%d", b1, level);
 	luca.draw_gnuplot(lab_x_next, lab_y_next, lab_r_next, string(posf), string(graphf), justint);*/
 
 	/*
 	if(level==0) {
 
 
-		sprintf(posf, "%s_oslo_files/specpos_%d", b1, level);
-		sprintf(graphf, "%s_oslo_files/graph_spec_%d", b1, level);
+		sprintf(posf, "%s/specpos_%d", b1, level);
+		sprintf(graphf, "%s/graph_spec_%d", b1, level);
 		luca.draw_gnuplot(lab_x_next, lab_y_next, lab_r_next, string(posf), string(graphf), edge_append);
 	}*/
 	
@@ -396,15 +396,15 @@ int another_level(string short_tpn, string netn, string tpn, map<int, double> & 
 
 
 
-int all_levels(int levels, string network_file) {
+int all_levels(int levels, string out_dir) {
 	
 	deque<string>  edge_append;
 	
 	visual_network luca;
 	char b1[1000];
-	cast_string_to_char(network_file, b1);
+	cast_string_to_char(out_dir, b1);
 	char b2[1000];
-	sprintf(b2, "%s_oslo_files/net%d", b1, levels);
+	sprintf(b2, "%s/net%d", b1, levels);
 	
 	luca.set_graph(string(b2));		// top hierarchy
 	cout<<"network:: "<<luca.size()<<" nodes"<<endl;
@@ -425,9 +425,9 @@ int all_levels(int levels, string network_file) {
 	
 	
 	if(levels > 1)
-		sprintf(b2, "%s_oslo_files/tp%d", b1, levels-1);
+		sprintf(b2, "%s/tp%d", b1, levels-1);
 	else
-		sprintf(b2, "%s_oslo_files/tp", b1);
+		sprintf(b2, "%s/tp", b1);
 	
 	
 	//get_sizes("football.dat_files/tp1", sizes);
@@ -443,8 +443,8 @@ int all_levels(int levels, string network_file) {
 
 	char posf[1000];
 	char graphf[1000];
-	sprintf(posf, "%s_oslo_files/pos_%d", b1, levels);
-	sprintf(graphf, "%s_oslo_files/ggraph_%d", b1, levels);
+	sprintf(posf, "%s/pos_%d", b1, levels);
+	sprintf(graphf, "%s/ggraph_%d", b1, levels);
 	
 	cout<<"writing..."<<endl;
 	luca.draw_gnuplot(lab_x, lab_y, lab_r, string(posf), string(graphf));
@@ -482,24 +482,24 @@ int all_levels(int levels, string network_file) {
 		
 		
 		if(i > 1)
-			sprintf(b2, "%s_oslo_files/tp%d", b1, i-1);
+			sprintf(b2, "%s/tp%d", b1, i-1);
 		else if(i==1)
-			sprintf(b2, "%s_oslo_files/tp", b1);
+			sprintf(b2, "%s/tp", b1);
 		else
 			sprintf(b2, "_void_");
 		
 		
 		char b3[1000];
 		if(i > 0)
-			sprintf(b3, "%s_oslo_files/net%d", b1, i);
+			sprintf(b3, "%s/net%d", b1, i);
 		else
 			sprintf(b3, "%s", b1);
 		
 		char b4[1000];
 		if(i > 0)
-			sprintf(b4, "%s_oslo_files/short_tp%d", b1, i);
+			sprintf(b4, "%s/short_tp%d", b1, i);
 		else
-			sprintf(b4, "%s_oslo_files/tp", b1);
+			sprintf(b4, "%s/tp", b1);
 
 		
 		

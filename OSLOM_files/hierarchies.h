@@ -199,7 +199,7 @@ void no_singletons(char * directory_char, oslom_net_global & luca, module_collec
 		}
 		
 		char char_to_use[1000];
-		sprintf(char_to_use, "%s_oslo_files/tp_without_singletons", directory_char);	
+		sprintf(char_to_use, "%s/tp_without_singletons", directory_char);	
 		luca.print_modules(false, string(char_to_use), Mcoll);				// homeless nodes printed
 		
 		Mcoll.memberships=memberships_;
@@ -225,12 +225,12 @@ bool write_tp_of_this_level(int level, oslom_net_global & luca, char * directory
 	int csy;
 	
 	char char_to_use[1000];
-	sprintf(char_to_use, "%s_oslo_files/partitions_level_%d", directory_char, level);
+	sprintf(char_to_use, "%s/partitions_level_%d", directory_char, level);
 	string tps(char_to_use);
 	if(level==0)
-		sprintf(char_to_use, "%s_oslo_files/tp", directory_char);
+		sprintf(char_to_use, "%s/tp", directory_char);
 	else
-		sprintf(char_to_use, "%s_oslo_files/short_tp%d", directory_char, level);
+		sprintf(char_to_use, "%s/short_tp%d", directory_char, level);
 	string tp_ultimate(char_to_use);
 	
 	
@@ -263,7 +263,7 @@ bool write_tp_of_this_level(int level, oslom_net_global & luca, char * directory
 		cout<<"copying network file to the main folder"<<endl;
 			
 		char char_to_copy[1000];
-		sprintf(char_to_copy, "cp %s_oslo_files/net%d oslo_network_h", directory_char, level);
+		sprintf(char_to_copy, "cp %s/net%d oslo_network_h", directory_char, level);
 		csy=system(char_to_copy);
 		external_program_to_call("oslo_network_h", luca, tps, soft_partitions_written);
 	}
@@ -278,7 +278,7 @@ bool write_tp_of_this_level(int level, oslom_net_global & luca, char * directory
 	
 	if(level==0) {
 		
-		sprintf(char_to_use, "cp %s_oslo_files/tp tp", directory_char);
+		sprintf(char_to_use, "cp %s/tp tp", directory_char);
 		csy=system(char_to_use);
 	}
 		
@@ -297,7 +297,7 @@ bool write_tp_of_this_level(int level, oslom_net_global & luca, char * directory
 	if(level==0)
 		no_singletons(directory_char, luca, mall);
 	
-	sprintf(char_to_use, "%s_oslo_files/statistics_level_%d.dat", directory_char, level);
+	sprintf(char_to_use, "%s/statistics_level_%d.dat", directory_char, level);
 	ofstream stout(char_to_use);
 	if(level==0)
 		luca.print_statistics(stout, mall);
@@ -312,13 +312,13 @@ bool write_tp_of_this_level(int level, oslom_net_global & luca, char * directory
 	if(level!=0 && int(neigh_weight_s.size())!=luca.size()) {
 		// I need to translate the file short_tp%d into tp%d using the content of tp%d-1
 		if(level==1)
-			sprintf(char_to_use, "%s_oslo_files/tp", directory_char);
+			sprintf(char_to_use, "%s/tp", directory_char);
 		else
-			sprintf(char_to_use, "%s_oslo_files/tp%d", directory_char, level -1);
+			sprintf(char_to_use, "%s/tp%d", directory_char, level -1);
 		
 		
 		string previous_tp(char_to_use);
-		sprintf(char_to_use, "%s_oslo_files/tp%d", directory_char, level);
+		sprintf(char_to_use, "%s/tp%d", directory_char, level);
 		string new_tp(char_to_use);
 		translate_covers(previous_tp, new_tp, tp_ultimate, stout, original_dim);
 	}
@@ -331,7 +331,7 @@ bool write_tp_of_this_level(int level, oslom_net_global & luca, char * directory
 	double previous_dim=luca.size();
 	
 	luca.set_graph(neigh_weight_s);
-	sprintf(char_to_use, "%s_oslo_files/net%d", directory_char, level+1);
+	sprintf(char_to_use, "%s/net%d", directory_char, level+1);
 	string net_level(char_to_use);
 	if(previous_dim!=luca.size())
 		luca.draw(net_level);

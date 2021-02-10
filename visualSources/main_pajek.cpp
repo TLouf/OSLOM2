@@ -135,9 +135,9 @@ int main(int argc, char * argv[]) {
 		
 		
 		if(level==0)
-			sprintf(b, "%s_oslo_files/tp", argv[1]);
+			sprintf(b, "%s/tp", argv[1]);
 		else
-			sprintf(b, "%s_oslo_files/tp%d", argv[1], level);
+			sprintf(b, "%s/tp%d", argv[1], level);
 
 		get_partition_from_file(string(b), M, 1);
 		map<int, double> node_x;
@@ -148,7 +148,7 @@ int main(int argc, char * argv[]) {
 			deque<int> a;
 			deque<double> b1;
 
-			sprintf(b, "%s_oslo_files/pos_0", argv[1]);
+			sprintf(b, "%s/pos_0", argv[1]);
 			get_data_from_file(string(b), a, 3);
 			get_data_from_file(string(b), b1, 1);
 			
@@ -163,7 +163,7 @@ int main(int argc, char * argv[]) {
 			deque<int> a;
 			deque<double> b1;
 			
-			sprintf(b, "%s_oslo_files/pos_0", argv[1]);
+			sprintf(b, "%s/pos_0", argv[1]);
 			get_data_from_file(string(b), a, 3);
 			get_data_from_file(string(b), b1, 2);
 			
@@ -190,7 +190,7 @@ int main(int argc, char * argv[]) {
 		
 		
 		char output_pajek[1000];
-		sprintf(output_pajek, "%s_oslo_files/pajek_file_%d.net", argv[1], level);
+		sprintf(output_pajek, "%s/pajek_file_%d.net", argv[1], level);
 		
 		luca.draw_pajek(node_x, node_y, string(output_pajek), M, scale_factor);
 		

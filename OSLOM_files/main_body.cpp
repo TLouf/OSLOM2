@@ -21,7 +21,7 @@ int main(int argc, char * argv[]) {
 	paras.print();
 	
 	string netfile=paras.file1;
-	
+	string out_dir=paras.out_dir;
 	
 	{	/* check if file_name exists */
 		char b[netfile.size()+1];
@@ -54,15 +54,15 @@ int main(int argc, char * argv[]) {
 	
 	
 	char directory_char[1000];
-	cast_string_to_char(paras.file1, directory_char);
+	cast_string_to_char(paras.out_dir, directory_char);
 	char char_to_use[1000];
-	sprintf(char_to_use, "mkdir %s_oslo_files", directory_char);
+	sprintf(char_to_use, "mkdir %s", directory_char);
 	int sy=system(char_to_use);
-	sprintf(char_to_use, "rm -r %s_oslo_files/*", directory_char);
+	sprintf(char_to_use, "rm -r %s/*", directory_char);
 	sy=system(char_to_use);
 	
-	
-	cout<<"output files will be written in directory: "<<directory_char<<"_oslo_files"<<endl;
+
+	cout<<"output files will be written in directory: "<<directory_char<<endl;
 	
 	//luca.draw_with_weight_probability("prob");
 	oslom_level(luca, directory_char);
