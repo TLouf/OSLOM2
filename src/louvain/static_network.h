@@ -877,8 +877,8 @@ int static_network::connected (string str) {
 	
 	
 	char b[200];
-	cast_string_to_char(str, B);
-	ofstream con_out(B);
+	cast_string_to_char(str, b);
+	ofstream con_out(b);
 
 	//cout<<"number of connected components = "<<partic.size()<<endl;
 	//cout<<"dimensions"<<endl;

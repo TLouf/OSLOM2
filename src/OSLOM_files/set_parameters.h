@@ -13,10 +13,10 @@
 void general_program_statement(char * b) {
 	
 	
-	cout<<"USAGE: "<<b<<" -f network.dat -uw(-w)"<<endl<<endl;
+	cout<<"USAGE: "<<b<<" -f network.dat -uw(-w) -o out_dir"<<endl<<endl;
 	cout<<"-uw must be used if you want to use the unweighted null model; -w otherwise."<<endl;
 	cout<<"network.dat is the list of edges. Please look at ReadMe.pdf for more details."<<endl;
-	
+	cout<<"out_dir is the name of the directory where the outputs will be saved."<<endl;
 	
 	
 	cout<<"\n\n\n";
@@ -45,7 +45,7 @@ void general_program_statement(char * b) {
 	cout<<"OUTPUT FILES"<<endl<<endl;
 	
 	
-	cout<<"The program will create a directory called \"[network.dat]_oslo_files\". If the directory is not empty it will cleared, so be careful if you want to save some previous output files.\n"<<endl;
+	cout<<"If the given output directory is not empty it will cleared, so be careful if you want to save some previous output files.\n"<<endl;
 	cout<<"All the files will be written in this directory. "<<endl;
 	cout<<"The first level partition will be written in a file called \"tp\", the next ";
 	cout<<"hierchical network will be recorded as \"net1\", "<<endl;
@@ -165,7 +165,7 @@ void Parameters::print() {
 	cout<<"**************************************"<<endl;
 	cout<<"Threshold:\t\t\t"<<threshold<<endl;
 	cout<<"Network file:\t\t\t"<<file1<<endl;
-	
+	cout<<"Output directory:\t\t\t"<<output_dir<<endl;
 	
 	if(weighted)
 		cout<<"Weighted: yes"<<endl;
@@ -327,7 +327,6 @@ Parameters::Parameters() {
 	infomap_runs=0;
 	copra_runs=0;
 	louvain_runs=0;
-	
 	
 	
 	
