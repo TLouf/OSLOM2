@@ -165,7 +165,7 @@ void Parameters::print() {
 	cout<<"**************************************"<<endl;
 	cout<<"Threshold:\t\t\t"<<threshold<<endl;
 	cout<<"Network file:\t\t\t"<<file1<<endl;
-	cout<<"Output directory:\t\t\t"<<output_dir<<endl;
+	cout<<"Output directory:\t\t\t"<<out_dir<<endl;
 	
 	if(weighted)
 		cout<<"Weighted: yes"<<endl;
