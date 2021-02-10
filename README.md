@@ -1,7 +1,3 @@
----
-title: 'User''s guide for OSLOM (version 2.5)'
----
-
 This repository contains my slight adaptation of OSLOM's source code to fix an overflow error linked to too long data file names (easily occurring when providing full paths), and to provide an output directory when calling OSLOM. The latter fix enables one to launch the algorithm several times on the same data file in parallel, without having to duplicate the data.
 
 Disclaimer: I was not involved in the development of OSLOM and have zero experience in coding in C++, so things outside my usage may be broken. See the [OSLOM website](http://www.oslom.org/) to download the original code and contact the team. Below is the original README with slight adaptations based on my changes.
