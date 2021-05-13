@@ -18,7 +18,7 @@ int get_partition_from_file_tp_format(string S, map<int, deque<int> > & M) {
 	
 	M.clear();
 	
-	char b[200];
+	char b[1000];
 	cast_string_to_char(S, b);
 	
 	ifstream inb(b);
@@ -59,7 +59,7 @@ int get_partition_from_file_tp_format(string S, deque<deque<int> > & M, deque<in
 	M.clear();
 	homel.clear();
 	
-	char b[200];
+	char b[1000];
 	cast_string_to_char(S, b);
 	
 	ifstream inb(b);
@@ -121,7 +121,7 @@ int get_partition_from_file_tp_format(string S, deque<deque<int> > & M, bool any
 	
 	M.clear();
 	
-	char b[200];
+	char b[1000];
 	cast_string_to_char(S, b);
 	
 	ifstream inb(b);
@@ -163,7 +163,7 @@ int get_partition_from_file(string s, deque<deque<int> > & M, int min) {
 
 	M.clear();
 	
-	char b[200];
+	char b[1000];
 	cast_string_to_char(s, b);
 	
 	ifstream inb(b);
@@ -199,7 +199,7 @@ int get_partition_from_file_list(string s, deque<deque<int> > & ten) {
 
 	ten.clear();
 	
-	char b[200];
+	char b[1000];
 	cast_string_to_char(s, b);
 	
 	ifstream inb(b);

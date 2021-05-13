@@ -38,7 +38,7 @@ int get_partition_from_file_list_pajek(string s, deque<deque<int> > & ten, deque
 
 	ten.clear();
 	
-	char b[200];
+	char b[1000];
 	cast_string_to_char(s, b);
 	
 	ifstream inb(b);
